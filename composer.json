@@ -1,6 +1,6 @@
 {
     "name": "zenstruck/assert-html",
-    "description": "Fluent html assertions.",
+    "description": "Fluent html assertions plugin for zenstruck/assert.",
     "homepage": "https://github.com/zenstruck/assert-html",
     "type": "library",
     "license": "MIT",
