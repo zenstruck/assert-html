@@ -21,63 +21,63 @@ use Zenstruck\Assert\Mink\WebAssertAdapter;
  */
 trait HtmlAssertions
 {
-    final public function see(string $expected): static
+    final public function contains(string $expected): static
     {
         $this->webAssert()->pageTextContains($expected);
 
         return $this;
     }
 
-    final public function notSee(string $expected): static
+    final public function doesNotContain(string $expected): static
     {
         $this->webAssert()->pageTextNotContains($expected);
 
         return $this;
     }
 
-    final public function seeIn(string $selector, string $expected): static
+    final public function containsIn(string $selector, string $expected): static
     {
         $this->webAssert()->elementTextContains('css', $selector, $expected);
 
         return $this;
     }
 
-    final public function notSeeIn(string $selector, string $expected): static
+    final public function doesNotContainIn(string $selector, string $expected): static
     {
         $this->webAssert()->elementTextNotContains('css', $selector, $expected);
 
         return $this;
     }
 
-    final public function seeElement(string $selector): static
+    final public function hasElement(string $selector): static
     {
         $this->webAssert()->elementExists('css', $selector);
 
         return $this;
     }
 
-    final public function notSeeElement(string $selector): static
+    final public function doesNotHaveElement(string $selector): static
     {
         $this->webAssert()->elementNotExists('css', $selector);
 
         return $this;
     }
 
-    final public function elementCount(string $selector, int $count): static
+    final public function hasElementCount(string $selector, int $count): static
     {
         $this->webAssert()->elementsCount('css', $selector, $count);
 
         return $this;
     }
 
-    final public function elementAttributeContains(string $selector, string $attribute, string $expected): static
+    final public function attributeContains(string $selector, string $attribute, string $expected): static
     {
         $this->webAssert()->elementAttributeContains('css', $selector, $attribute, $expected);
 
         return $this;
     }
 
-    final public function elementAttributeNotContains(string $selector, string $attribute, string $expected): static
+    final public function attributeDoesNotContain(string $selector, string $attribute, string $expected): static
     {
         $this->webAssert()->elementAttributeNotContains('css', $selector, $attribute, $expected);
 
@@ -91,14 +91,14 @@ trait HtmlAssertions
         return $this;
     }
 
-    final public function fieldNotEquals(string $selector, string $expected): static
+    final public function fieldDoesNotEqual(string $selector, string $expected): static
     {
         $this->webAssert()->fieldValueNotEquals($selector, $expected);
 
         return $this;
     }
 
-    final public function selected(string $selector, string $expected): static
+    final public function fieldSelected(string $selector, string $expected): static
     {
         $field = $this->webAssert()->fieldExists($selector);
 
@@ -107,7 +107,7 @@ trait HtmlAssertions
         return $this;
     }
 
-    final public function notSelected(string $selector, string $expected): static
+    final public function fieldNotSelected(string $selector, string $expected): static
     {
         $field = $this->webAssert()->fieldExists($selector);
 
@@ -116,14 +116,14 @@ trait HtmlAssertions
         return $this;
     }
 
-    final public function checked(string $selector): static
+    final public function fieldChecked(string $selector): static
     {
         $this->webAssert()->checkboxChecked($selector);
 
         return $this;
     }
 
-    final public function notChecked(string $selector): static
+    final public function fieldNotChecked(string $selector): static
     {
         $this->webAssert()->checkboxNotChecked($selector);
 
